@@ -32,4 +32,63 @@ export default function Register() {
       setConfirmPassword('');
     }
   };
+
+  return (
+    <main className="register-container">
+      <div className='register-box'>
+        <h1 className='register-title'>Create Account</h1>
+        {message && <p>{message}</p>}
+        <form onSubmit={handleSubmit} className='register-form'>
+          <div className='input-group'>
+            <label htmlFor='username'>Username</label>
+            <input 
+              type='text' 
+              id='username' 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)} 
+              required 
+              placeholder="Enter your Username"
+            />
+          </div>
+          <div className='input-group'>
+            <label htmlFor='email'>Email</label>
+            <input 
+              type='email' 
+              id='email' 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className='input-group'>
+            <label htmlFor='password'>Password</label>
+            <input 
+              type='password' 
+              id='password' 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
+              placeholder="Enter your password"
+            />
+          </div>
+          <div className='input-group'>
+            <label htmlFor='confirmPassword'>Confirm Password</label>
+            <input 
+              type='password' 
+              id='confirmPassword' 
+              value={confirmPassword} 
+              onChange={(e) => setConfirmPassword(e.target.value)} 
+              required 
+              placeholder="Confirm your password"
+            />
+          </div>
+          <button type='submit' className='register-button'>Create Account</button>
+        </form>
+        <div className='footer'>
+          <p>Already have an account? <Link href=''>Login</Link></p>
+        </div>
+      </div>
+    </main>
+  );
 }
