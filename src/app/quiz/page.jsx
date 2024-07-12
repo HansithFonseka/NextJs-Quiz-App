@@ -16,7 +16,7 @@ const Page = () => {
   const { question, answers } = questions[activeQuestion];
 
   const onAnswerSelected = (answer, idx) => {
-    setChecked(false);
+    setChecked(true);
     setSelectedAnswerIndex(idx);
     setSelectedAnswer(answer);
   };
