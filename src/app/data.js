@@ -25,12 +25,7 @@ export const quiz = {
         answers: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'],
       
       },
-      {
-        id: 5,
-        question: 'Have you felt unusually tired or low on energy?',
-        answers: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'],
-       
-      },
+     
       {
         id: 6,
         question: 'Have you been feeling bad about yourself or like you ve let yourself down?',
