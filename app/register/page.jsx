@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Toaster, toast } from 'sonner';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -13,28 +14,47 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3001/api/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, email, password, confirmPassword })
-    });
+    try {
+      const response = await fetch('http://localhost:3001/api/users/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, email, password, confirmPassword })
+      });
 
-    const data = await response.json();
-    setMessage(data.message);
+      const data = await response.json();
 
-    if (response.ok) {
-      // Clear form fields on success
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
+      if (response.ok) {
+        toast.success(data.message, {
+          className: 'success',
+        })
+
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+      } else {
+         toast.error(data.message, {
+          className: 'error',
+        });
+      }
+
+    } catch (error) {
+      console.error('Error registering:', error);
+      toast.error(data.message, {
+        className: 'error',
+      });
     }
   };
 
   return (
     <main className="register-container">
+  <Toaster 
+        toastOptions={{
+          className: 'toaster',
+        }}
+      />
       <div className='register-box'>
         <h1 className='register-title'>Create Account</h1>
         {message && <p>{message}</p>}
