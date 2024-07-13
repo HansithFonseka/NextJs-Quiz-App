@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Toaster, toast } from 'sonner';
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,24 +25,42 @@ export default function Login() {
       const data = await res.json();
 
       if (res.status === 200) {
-        // Save token to localStorage or handle login success
-        localStorage.setItem('token', data.token);
-        // Redirect or update state to indicate login success
-        console.log('Login successful');
+        toast.success(data.message, {
+          className: 'success',
+        });
+        window.location.href = '/login';
+
       } else {
-        setError(data.message);
+        toast.error(data.message, {
+          className: 'error',
+        });
       }
+
+      // Clear the text fields after login attempt
+      setEmail('');
+      setPassword('');
+
     } catch (error) {
       console.error('Error logging in:', error);
-      setError('Server error');
+      toast.error('Server error', {
+        className: 'error',
+      });
+
+      // Clear the text fields in case of error
+      setEmail('');
+      setPassword('');
     }
   };
 
   return (
     <main className="login-container">
+      <Toaster
+        toastOptions={{
+          className: 'toaster',
+        }}
+      />
       <div className='login-box'>
         <h1 className='login-title'>Login</h1>
-        {error && <p className='error'>{error}</p>}
         <form onSubmit={handleSubmit} className='login-form'>
           <div className='input-group'>
             <label htmlFor='email'>Email</label>
