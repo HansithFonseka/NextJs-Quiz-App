@@ -1,86 +1,157 @@
 /* styles.css */
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .login-box {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .login-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-  
-  .label {
-    margin-bottom: 0.5rem;
-    display: block;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input:focus {
-    border-color: #0070f3;
-    outline: none;
-  }
-  
-  .login-button {
-    padding: 0.75rem;
-    border: none;
-    background-color: #0070f3;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .login-button:hover {
-    background-color: #005bb5;
-  }
-  
-  .footer {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: #aaa;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: bold;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+.login-button {
+  padding: 0.75rem;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.login-button:hover {
+  background-color: #005bb5;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+
+.success {
+background-color: #28a745; /* Green background */
+color: #ffffff; /* White text */
+padding: 10px 20px; /* Padding */
+border-radius: 5px; /* Rounded corners */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+display: flex;
+align-items: center;
+width: 300px; /* Increased width */
+animation: fadeInRight 0.5s, fadeOutRight 0.5s 4.5s;
+width: 400px;
+height: 60px;
+margin-bottom: 500px;
+}
+
+/* Success Toast Icon */
+.success .toast-icon {
+margin-right: 10px; /* Space between icon and text */
+}
+
+/* Error Toast Styles */
+.error {
+background-color: #dc3545; /* Red background */
+color: #ffffff; /* White text */
+padding: 10px 20px; /* Padding */
+border-radius: 5px; /* Rounded corners */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+display: flex;
+align-items: center;
+width: 300px; /* Increased width */
+animation: fadeInRight 0.5s, fadeOutRight 0.5s 4.5s;
+width: 400px;
+height: 60px;
+margin-bottom: 500px;
+}
+
+/* Error Toast Icon */
+.error .toast-icon {
+margin-right: 10px; /* Space between icon and text */
+}
+
+@keyframes fadeInRight {
+from {
+  opacity: 0;
+  transform: translateX(100%);
+}
+to {
+  opacity: 1;
+  transform: translateX(0);
+}
+}
+
+@keyframes fadeOutRight {
+from {
+  opacity: 1;
+  transform: translateX(0);
+}
+to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+}
+
+/* Toast Container */
+.toast-container {
+position: fixed;
+top: 20px;
+right: 20px;
+z-index: 9999; /* Make sure it is above other elements */
+}
