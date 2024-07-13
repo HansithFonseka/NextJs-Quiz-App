@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:3001/api/login/login', {
+      const res = await fetch('https://nextjs-quiz-backend.onrender.com/api/login/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

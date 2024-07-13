@@ -36,7 +36,7 @@ const Page = () => {
 
   const fetchResult = async (answers) => {
     try {
-      const response = await fetch('http://localhost:3001/api/depression/calculate', {
+      const response = await fetch('https://nextjs-quiz-backend.onrender.com/api/depression/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
